@@ -3051,7 +3051,7 @@ miscsection:CreateLabel("Glider Float Exploit [" .. getgenv().Star .. "]")
 
 local autofarmingsection = premiumtab:CreateSection("Auto Farming")
 autofarmingsection:CreateLabel("Kocmoc Premium includes:")
-autofarmingsection:CreateLabel("Windy Bee Server Hopper [" .. getgenv().Star .. "]")
+autofarmingsection:CreateLabel("Windy Bee Server Hopper"
 autofarmingsection:CreateLabel("Smart Bubble Bloat [" .. getgenv().Star .. "]")
 
 local autojellysection = premiumtab:CreateSection("Auto Jelly")
@@ -3774,13 +3774,25 @@ task.spawn(function()
                 fd.Position.Z
             )
         end
+     end
+  end)
+bypass_teleport(teleport_table.location1)
         if kocmoc.toggles.farmrares and not temptable.started.crab and not temptable.started.ant then
             for k, v in next, game.workspace.Collectibles:GetChildren() do
-                if v.CFrame.YVector.Y == 1 then
-                    if v.Transparency == 0 then
-                        decal = v:FindFirstChildOfClass("Decal")
+                local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(1)
+
+local lp = game.Players.LocalPlayer
+
+function bypass_teleport(v)
+    if lp.Character and 
+    lp.Character:FindFirstChild('HumanoidRootPart') then
+        local cf = CFrame.new(v)
+        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+        a:Play
+                       decal = v:FindFirstChildOfClass("Decal")
                         for e, r in next, kocmoc.rares do
-                            if decal.Texture == r or decal.Texture == "rbxassetid://" .. r then
+                            if decal.Texture == r or decal.Texture == "rbxassetid://" .. r then 
                                 api.humanoidrootpart().CFrame = v.CFrame
                                 break
                             end
