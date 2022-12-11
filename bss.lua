@@ -3051,7 +3051,7 @@ miscsection:CreateLabel("Glider Float Exploit [" .. getgenv().Star .. "]")
 
 local autofarmingsection = premiumtab:CreateSection("Auto Farming")
 autofarmingsection:CreateLabel("Kocmoc Premium includes:")
-autofarmingsection:CreateLabel("Windy Bee Server Hopper"
+autofarmingsection:CreateLabel("Windy Bee Server Hopper [" .. getgenv().Star .. "]")
 autofarmingsection:CreateLabel("Smart Bubble Bloat [" .. getgenv().Star .. "]")
 
 local autojellysection = premiumtab:CreateSection("Auto Jelly")
